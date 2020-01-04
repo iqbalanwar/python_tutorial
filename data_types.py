@@ -101,6 +101,7 @@ print('Note that they have the same values of id, because literals are the same'
 print(f"However, the id of x is {id(x)}")
 print(f"And the id of y is {id(y)}. See how they're different?")
 
+# You can't test against type(), so you should use isinstance
 if isinstance(x, tuple):
     print("x is a tuple")
 elif isinstance(x, list):
