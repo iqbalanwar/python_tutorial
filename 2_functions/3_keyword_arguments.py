@@ -1,5 +1,10 @@
+'''
+Keyword arguments are basically dictionaries
+'''
+
 def main():
-    kitten()
+    x = dict(Buffy='meow', Zilla='grr', Angel='rawr')
+    kitten(**x) # a reference to keyword arguments the dictionary
 
 def kitten(**kwargs):
     if len(kwargs):
