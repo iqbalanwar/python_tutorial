@@ -1,4 +1,5 @@
 # This program is a tutorial of python 3
+# This follows the VSCode Python tutorial 
 
 # In python, everything is an object, including strings
 
