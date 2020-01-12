@@ -15,7 +15,7 @@ def main():
     # Bonuses:
     # dayOfTheWeek()
     # trainLines()
-    countXPairs("xHellox")
+    countXPairs("xxaxbxcxx")
 
 '''
 PART 1: Big or Small String?
@@ -213,16 +213,12 @@ Write a function called countXx. Count the number of "xx" in the given string. W
 def countXPairs(str):
     pairs = 0
     
-    if len(str) < 2:
+    if len(str) <= 1:
         print("This string isn't long enough!")
-    elif len(str) == 2:
-        if (str[0] == 'x') & (str[1] == 'x'):
+    for i in range(1, len(str)):
+        # if str[i-1] == str[i]: <--- THIS IS FOR ALL PAIRS
+        if (str[i-1].lower() == 'x') & (str[i].lower() == 'x'):
             pairs += 1
-    else:
-        for i in range(1, len(str)):
-            # if str[i-1] == str[i]: <--- THIS IS FOR ALL PAIRS
-            if (str[i-1] == 'x') & (str[i] == 'x'):
-                pairs += 1
 
     print(f"There are {pairs} pairs of xx in the string {str}")
 
