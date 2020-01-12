@@ -1,6 +1,14 @@
 '''
 List comprehension is a list based on another list or iterator.
 - This is a common technique in python
+
+https://realpython.com/list-comprehension-python/#using-map-objects
+
+Every list comprehension in Python includes three elements:
+
+1) expression is the member itself, a call to a method, or any other valid expression that returns a value. 
+2) member is the object or value in the list or iterable. In the example above, the member value is i.
+3) iterable is a list, set, sequence, generator, or any other object that can return its elements one at a time. 
 '''
 
 def main():
