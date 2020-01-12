@@ -11,6 +11,14 @@ def main():
     game_two_list()
     game_tuple()
 
+    x = ['-','X','X','-']
+    print(f"Before, the list x is {x}")
+    # this will modify list x, so the value at the 0 index
+    # will be the value popped, or '-'
+    # NEW LIST: ['-','-','X','X']
+    x.insert(0, x.pop())
+    print(f" After, the list x is {x}")
+
 def game_one_list():
     print("========== Game One List ==========")
     game = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock']
