@@ -16,7 +16,7 @@ getters are there.
 
 class Animal:
     # standard constructor:
-    # def __init__(self, type, name, sound):
+    # def __init__(self, type=None, name=None, sound=None):
     #     self._type = type
     #     self._name = name
     #     self._sound = sound
@@ -27,9 +27,24 @@ class Animal:
         self._name = kwargs['name'] if 'name' in kwargs else 'fluffy'
         self._sound = kwargs['sound'] if 'sound' in kwargs else 'rawr'
     
-    def type(self): return self._type
-    def name(self): return self._name
-    def sound(self): return self._sound
+    # Standard Getters:
+    # def type(self): return self._type
+    # def name(self): return self._name
+    # def sound(self): return self._sound
+
+    # The following three functions work as getters AND setters
+    def type(self, t=None):
+        if t: self._type = t
+        return self._type
+    def name(self, n=None):
+        if n: self._name = n
+        return self._name
+    def sound(self, s=None):
+        if s: self._sound = s
+        return self._sound
+
+    def __str__(self):
+        return f'The {self.type()} is named "{self.name()}" and says "{self.sound()}".'
 
 def print_animal(o):
     if not isinstance(o, Animal):
