@@ -6,15 +6,16 @@ of it (through the period '.' operator).
 - self is a reference to the object (like 'this' in JS/Java)
 - self is always used as the first parameter
 
-See the use of this in main(). Remember, quack() and move() are
-objects.
-
 Putting an underscore at the beginning of the variables discourages
 users of the object to access the variables directly. That's why the
 getters are there.
 '''
 
 class Animal:
+    # This is a class variable, NOT an object variable
+    # It's defined in the class, not in any method
+    # x = [1, 2, 3]
+
     # standard constructor:
     # def __init__(self, type=None, name=None, sound=None):
     #     self._type = type
@@ -56,11 +57,35 @@ def main():
 
     a0 = Animal(type = 'kitten', name = 'fluffy', sound = 'rawr')
     a1 = Animal(type = 'puppy', name = 'pal', sound = 'woof')
+
     # object instantiation with standard constructor:
     # a1 = Animal('puppy', 'pal', 'woof')
+
     print_animal(a0)
     print_animal(a1)
-    print_animal(Animal(type = 'velociraptor', name = 'veronica', sound = 'hello'))
+    print_animal(Animal(type='velociraptor', name='veronica', sound='hello'))
     print_animal(Animal())
+
+    '''
+    PROBLEMATIC CODE:
+    print(a0.x)
+    a1.x[0] = 7
+    print(a0.x)
+
+    The reason this is problematic is because the class variable is 
+    being modified. Since the variable is referenced in the class and
+    not in a specific object, any modifications to that class variable
+    is accessible in all objects of that class (any object).
+
+    Note: DO NOT PUT MUTABLE DATA IN A CLASS. If you must but a constant
+    inside a class, MAKE SURE IT IS IMMUTABLE
+
+    That's why encapsulation is important. Since x is a class variable,
+    it is accessible by all objects of that class and is therefore not
+    encapsulated. However, the variables attached to the constructor are
+    encapsulated, so they're attached to individual objects. Furthermore,
+    don't directly set/get object variables; convention is to use the
+    given setters/getters
+    '''
 
 if __name__ == '__main__': main()
