@@ -1,5 +1,6 @@
 '''
 Inheritance is one of the core tenants of OOP
+You need to know how constructors work in inheritance
 '''
 
 class Animal:
@@ -9,6 +10,8 @@ class Animal:
         if 'sound' in kwargs: self._sound = kwargs['sound']
 
     def type(self, t=None):
+        # This is a try catch block in python
+        # This is the normal way to use a setter-getter
         if t: self._type = t
         try: return self._type
         except AttributeError: return None
@@ -25,6 +28,7 @@ class Animal:
 
 class Duck(Animal):
     def __init__(self, **kwargs):
+        # Initializes the type for Duck
         self._type = 'duck'
         if 'type' in kwargs: del kwargs['type']
         super().__init__(**kwargs)
