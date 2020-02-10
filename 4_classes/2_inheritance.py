@@ -39,6 +39,16 @@ class Kitten(Animal):
         self._type = 'kitten'
         if 'type' in kwargs: del kwargs['type']
         super().__init__(**kwargs)
+    
+    def kill(self, s):
+        print(f'{self.name()} will now kill all {s}!')
+
+# Class to reverse a string
+# Inherits from standard string class built into python
+class RevStr(str):
+    def __str__(self):
+        # returns slice of string, where step goes backwards
+        return self[::-1]
 
 
 def print_animal(o):
@@ -52,6 +62,10 @@ def main():
     a1 = Duck(name='donald', sound='quack')
     print_animal(a0)
     print_animal(a1)
+    a0.kill('humans')
+
+    hello = RevStr('Iqbal loves Thalia')
+    print(hello)
 
 
 if __name__ == '__main__': main()
